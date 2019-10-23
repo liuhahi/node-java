@@ -1,5 +1,4 @@
 FROM circleci/node:10.3.0-browsers
-RUN echo "deb deb http://ftp.jp.debian.org/debian/ stretch main contrib non-free" 
-# | sudo tee --append /etc/apt/sources.list
+RUN echo -e "deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx\ndeb-src http://nginx.org/packages/mainline/ubuntu/ xenial nginx" | tee /etc/apt/sources.list.d/nginx.list
 RUN sudo apt-get update
 RUN sudo apt-get install -t jessie-backports openjdk-8-jdk
